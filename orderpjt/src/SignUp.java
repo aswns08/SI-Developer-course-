@@ -1,5 +1,13 @@
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,19 +16,28 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-public class SignUp extends JFrame{
+public class SignUp extends JFrame implements ActionListener{
+	Member mb ;
 
 	JPanel jp_Phone, jp_Pwd;
 	JLabel phone, pwd;
-	JTextField phoneNum, password;
+	JTextField phoneNum ;
+	JTextField password;
 	
 	JButton login;
 	
-	public SignUp() {
-		
+	public SignUp(Member mb) {
+		this.mb = mb ;		
 		design();
+
+		//창 종료
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(-1);
+			}
+		});
 	}
-	
+
 	public void design() {
 		
 		Container ct = this.getContentPane();
@@ -34,7 +51,7 @@ public class SignUp extends JFrame{
 		phoneNum = new JTextField(20);
 		password = new JTextField(20);
 		
-		login = new JButton("가입완료");
+		login = new JButton("가입하기");
 		
 		jp_Phone.add(phone, BorderLayout.WEST);
 		jp_Pwd.add(pwd, BorderLayout.WEST);
@@ -45,14 +62,26 @@ public class SignUp extends JFrame{
 		ct.add(jp_Phone, BorderLayout.NORTH);
 		ct.add(jp_Pwd, BorderLayout.CENTER);
 		ct.add(login, BorderLayout.SOUTH);
+		
+		login.addActionListener(this);
 	}
 	
 	
-	public static void main(String[] args) {
-		SignUp signup = new SignUp();
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+		if ( e.getActionCommand().equals("회원 가입")) {
+			this.setBounds(500, 500, 500, 300);
+			this.setVisible(true);
+		}
+
+		else if(e.getActionCommand().equals("가입하기")) {
 		
-		signup.setBounds(500, 500, 500, 500);
-		signup.setVisible(true);
+			this.setVisible(false);
+			
+		}
+
 	}
 
 }

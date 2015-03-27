@@ -40,7 +40,7 @@ public class OrderMain extends JFrame {
 		
 		OrderMain ordermain = new OrderMain();
 		
-		ordermain.setBounds(300, 300, 300, 300);
+		ordermain.setBounds(300, 300, 400, 300);
 		ordermain.setVisible(true);
 		
 	}

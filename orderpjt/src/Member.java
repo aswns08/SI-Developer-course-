@@ -11,16 +11,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Member extends JFrame implements ActionListener{
-	
+	OrderMain om ;	
 	MainMenu mm ;
-	OrderMain om;
 
 	JButton member;
 	JButton nomember;
+	JButton signup;
 	JPanel jp;
 	
-	public Member(OrderMain om) {
-		this.om = om;
+	public Member(OrderMain om) {		
+		this.om = om ;
 		
 		design();
 		
@@ -38,16 +38,20 @@ public class Member extends JFrame implements ActionListener{
 		
 		member = new JButton("회원 주문");
 		nomember = new JButton("비회원 주문");
+		signup = new JButton("회원 가입");
 		jp = new JPanel();
 		
-		jp.setLayout(new GridLayout(1, 2));
+		jp.setLayout(new GridLayout(1, 3));
 		
-		jp.add(member, BorderLayout.WEST);
-		jp.add(nomember, BorderLayout.EAST);		
+		jp.add(member);
+		jp.add(nomember);
+		jp.add(signup);
 		
 		ct.add(jp, BorderLayout.CENTER);
 		
 		member.addActionListener(new Login(this));
+		nomember.addActionListener(new Menu(this));
+		signup.addActionListener(new SignUp(this));
 	}
 
 
@@ -55,11 +59,9 @@ public class Member extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-		this.setBounds(300, 300, 300, 300);
-		this.setVisible(true);
-		
-		om.setVisible(false);
-		
+		this.setBounds(300, 300, 400, 300);
+		this.setVisible(true);	
+		om.setVisible(false);		
 	}
 
 }
