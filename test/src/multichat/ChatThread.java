@@ -25,7 +25,7 @@ public class ChatThread extends Thread {
 			e.printStackTrace();
 		}
 	}
-	//run 오러바이드
+	//run 오버라이드
 	@Override
 	public void run() {
 		try{

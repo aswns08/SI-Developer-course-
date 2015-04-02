@@ -66,7 +66,7 @@ public class Chatlogin extends JFrame implements ActionListener{
 				if(jt1.getText().equals(rs.getString("pass"))){
 					this.setVisible(false);
 					System.out.println("¼º°ø");
-					ChatClient cc=new ChatClient(jt.getText(),"127.0.0.1", 20000);
+					ChatClient cc = new ChatClient(jt.getText(),"127.0.0.1", 20000);
 					cc.setBounds(200, 300, 400, 400);
 					cc.setVisible(true);
 				}else{

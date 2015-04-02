@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 public class ChatClient extends JFrame implements Runnable, ActionListener{
+	
 	private String nickname ; //닉네임
 	private String servAddr; //서버 주소
 	private int servPort; //서버 포트
@@ -57,7 +58,8 @@ public class ChatClient extends JFrame implements Runnable, ActionListener{
 			new WindowAdapter(){
 				public void windowClosing(WindowEvent e){
 					stop();
-					System.exit(0);					
+					System.exit(0);
+					
 				}
 				public void windowOpened(WindowEvent e){
 					tf1.requestFocus();
